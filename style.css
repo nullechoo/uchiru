@@ -12,7 +12,13 @@
         max-width: 300px !important;
         width: 100% !important;
         flex: 1 29% !important;
-    }    
+    }  
+    .navbar{
+        padding: 0 10px 0 10px !important;
+    }  
+    .container {
+        padding: 12px 10px 12px 10px !important;
+    }
 }
 @media screen and (max-width: 599px) {
     .text{
