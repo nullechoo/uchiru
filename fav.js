@@ -21,7 +21,7 @@ function reloadLocal(){
 
 
 function checkUrl() {
-    if (window.location.pathname === '/fav.html') {
+    if (window.location.pathname === '/uchiru/fav.html') {
         favLink.classList.add('active');
     }
 }

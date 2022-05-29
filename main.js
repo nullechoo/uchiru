@@ -143,7 +143,7 @@ function handlerClickButton(e) {
 }
 
 function checkUrl() {
-    if (window.location.pathname === '/index.html') {
+    if (window.location.pathname === '/uchiru/index.html') {
         Link.classList.add('active');
     }
 }
