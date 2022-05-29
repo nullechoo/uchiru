@@ -150,6 +150,7 @@ function checkUrl() {
 
 function handlerReload() {
     main();
+    localStorage.removeItem('favorites');
     window.location.pathname === '/index.html';
     window.location.reload();
 }
