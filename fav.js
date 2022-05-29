@@ -2,16 +2,21 @@
 const favLink = document.querySelector('.link__fav');
 const container = document.querySelector('.container');
 const array = JSON.parse(localStorage.getItem('main'));
+const array2 = JSON.parse(localStorage.getItem('favorites'));
 const goodArr = [];
 
-array.forEach(element => {
-    if (element != undefined) {
-        if (element.checked === true) {
-            goodArr[element.key] = element;
-            localStorage.setItem('favorites', JSON.stringify(goodArr.filter(el => el != null)));
+
+function reloadLocal(){
+    array.forEach(element => {
+        if (element != undefined) {
+            if (element.checked === true) {
+                goodArr[element.key] = element;
+                localStorage.setItem('favorites', JSON.stringify(goodArr));
+                
+            } 
         }
-    }
-})
+    })
+}
 
 
 
@@ -28,6 +33,12 @@ function handlerClickButton(e) {
         let gg = JSON.parse(localStorage.getItem('main'));
         gg[test.id].checked = false;
         localStorage.setItem('main', JSON.stringify(gg));
+        let rr = JSON.parse(localStorage.getItem('favorites'));
+        if(JSON.parse(localStorage.getItem('favorites')).filter(el => el != null).length === 1){
+            localStorage.removeItem('favorites');
+        } else { 
+            rr[array[test.id]] = null;
+        }
         window.location.reload();
     }
 }
@@ -37,6 +48,7 @@ function parseFav() {
         if (array[i] != undefined && array[i] != null) {
             if (array[i].checked != false) {
                 generateCards(array[i]);
+
             }
         } else if (array[i] === null || array[i] === undefined) {
             console.log('Уууппс... пустой элемент, видимо что-то с API');
@@ -58,7 +70,9 @@ function generateCards(atr) {
 }
 
 function init() {
+    console.log(JSON.parse(localStorage.getItem('favorites')));
     checkUrl();
+    reloadLocal()
     parseFav();
 }
 

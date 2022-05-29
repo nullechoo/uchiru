@@ -150,6 +150,7 @@ function checkUrl() {
 
 function handlerReload() {
     main();
+    window.location.pathname === '/index.html';
     window.location.reload();
 }
 
